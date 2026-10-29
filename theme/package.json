@@ -1,0 +1,29 @@
+{
+  "name": "slidev-theme-spreekbeurt",
+  "private": true,
+  "description": "Bright, big-text Slidev theme for kids' class presentations",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "slidev": ">=52.0.0"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "colorSchema": "light",
+      "fonts": {
+        "sans": "Nunito Variable",
+        "provider": "none"
+      },
+      "monaco": false,
+      "download": false,
+      "htmlAttrs": {
+        "lang": "nl"
+      },
+      "favicon": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>",
+      "twoslash": false
+    }
+  }
+}

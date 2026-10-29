@@ -1,0 +1,27 @@
+{
+  "name": "presentations",
+  "private": true,
+  "type": "module",
+  "description": "AI-friendly presentations (spreekbeurten) built with Slidev",
+  "packageManager": "pnpm@10.34.7",
+  "engines": {
+    "node": ">=22"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "onFail": "error"
+    }
+  },
+  "scripts": {
+    "preinstall": "node scripts/only-pnpm.mjs",
+    "new": "node scripts/new-deck.mjs",
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build-all.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/nunito": "5.3.0",
+    "@slidev/cli": "53.0.0",
+    "vue": "3.5.44"
+  }
+}

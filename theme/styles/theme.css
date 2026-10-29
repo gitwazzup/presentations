@@ -1,0 +1,156 @@
+:root {
+  --sb-bg: #fff8ec;
+  --sb-ink: #1f2a44;
+  --sb-muted: #5b6478;
+  --sb-coral: #ff6b4a;
+  --sb-sun: #ffc93c;
+  --sb-teal: #1fa595;
+  --sb-sky: #4a90e2;
+  --sb-card: #ffffff;
+  --sb-radius: 22px;
+
+  --slidev-theme-primary: var(--sb-coral);
+  --slidev-slide-container-background: var(--sb-bg);
+}
+
+.slidev-layout {
+  background: var(--sb-bg);
+  color: var(--sb-ink);
+  font-family: 'Nunito Variable', system-ui, sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.45;
+  padding: 2.5rem 3.5rem;
+  height: 100%;
+  position: relative; /* anchor for <Bron> */
+
+  h1 {
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+  }
+
+  h1 + p {
+    color: var(--sb-muted);
+    margin-top: -0.6rem;
+  }
+
+  p {
+    margin: 0.6rem 0;
+  }
+
+  ul,
+  ol {
+    margin: 0.4rem 0 0.4rem 0.2rem;
+  }
+
+  li {
+    margin: 0.55rem 0;
+    padding-left: 0.3rem;
+  }
+
+  ul > li {
+    list-style: none;
+    position: relative;
+    padding-left: 1.6rem;
+  }
+
+  ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    background: var(--sb-coral);
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 1.6rem;
+  }
+
+  ol > li::marker {
+    color: var(--sb-coral);
+    font-weight: 900;
+  }
+
+  strong {
+    color: var(--sb-coral);
+    font-weight: 900;
+  }
+
+  a {
+    color: var(--sb-sky);
+    text-decoration: underline;
+  }
+
+  img {
+    border-radius: var(--sb-radius);
+  }
+}
+
+/* Title slide: big, centered, optional background photo (see layouts/cover.vue). */
+.slidev-layout.cover {
+  display: grid;
+  place-content: center;
+  text-align: center;
+
+  h1 {
+    font-size: 4.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  h1 + p {
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+}
+
+.slidev-layout.cover.met-foto {
+  color: white;
+
+  h1,
+  h1 + p {
+    color: white;
+    text-shadow: 0 3px 18px #0009;
+  }
+}
+
+/* Centered layouts from Slidev core. */
+.slidev-layout.center,
+.slidev-layout.fact,
+.slidev-layout.statement {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.slidev-layout.fact h1 {
+  font-size: 6rem;
+  color: var(--sb-coral);
+  margin-bottom: 0.2rem;
+}
+
+/* image-left / image-right from Slidev core: keep the text side roomy. */
+.slidev-layout.default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Small "Bronnen" slide text. */
+.slidev-layout.bronnen {
+  font-size: 1.15rem;
+
+  li {
+    margin: 0.3rem 0;
+  }
+}

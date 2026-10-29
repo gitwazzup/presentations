@@ -1,0 +1,47 @@
+# pnpm settings for this repo. Supply-chain hardening: see README ("Veiligheid").
+
+# Use exactly the pnpm version pinned in package.json "packageManager".
+managePackageManagerVersions: true
+
+# Only install package versions that have been public for at least 7 days
+# (value in minutes). Most malicious releases are caught and pulled within days.
+minimumReleaseAge: 10080
+
+# Fail if a package version is published with weaker trust evidence
+# (e.g. no provenance) than earlier versions of the same package.
+trustPolicy: no-downgrade
+# ...but only for versions published in the last 30 days (minutes). Takeovers
+# show up as fresh publishes; older maintenance releases (e.g. semver@6.3.1)
+# predate provenance and would otherwise be false positives.
+trustPolicyIgnoreAfter: 43200
+
+# Transitive dependencies may only come from the registry, never from
+# git repos or tarball URLs.
+blockExoticSubdeps: true
+
+# Dependency install scripts are blocked by default in pnpm 10; make an
+# unreviewed script fail the install instead of being silently skipped.
+# Approve a package only after checking why it needs a build step.
+strictDepBuilds: true
+onlyBuiltDependencies: []
+
+# Pin exact versions in package.json (no ^ ranges).
+savePrefix: ''
+
+# Enforce the "engines" field in package.json.
+engineStrict: true
+
+# Transitive version fixes. Each entry says why; drop it once upstream catches up.
+# Check with: pnpm audit
+overrides:
+  # monaco-editor pins 3.4.8, which has XSS advisories (GHSA-c6gr-qvv4-5v3f and others).
+  dompurify: 3.4.17
+  # Every 1.x has serve-static advisories (path traversal, auth bypass). Pulled in by
+  # @modelcontextprotocol/node (Slidev's dev-time MCP server), which only calls
+  # getRequestListener; that API is unchanged in 2.x.
+  '@hono/node-server': 2.1.5
+  # DoS advisories fixed only in 2.x. Used solely by pptxgenjs (Slidev's PowerPoint export),
+  # which this repo never uses.
+  image-size: 2.0.4
+  # @comark/markdown-it imports markdown-it 14 internals; 15 breaks Slidev at startup.
+  '@comark/markdown-it>markdown-it': 14.3.3

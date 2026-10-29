@@ -1,0 +1,24 @@
+# Monthly, grouped update PRs. cooldown matches minimumReleaseAge in pnpm-workspace.yaml:
+# never propose a version younger than 7 days.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ['*']
+
+  # "npm" is Dependabot's name for the JavaScript ecosystem; it uses pnpm for this repo.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
+    groups:
+      dependencies:
+        patterns: ['*']
